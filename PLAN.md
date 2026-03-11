@@ -1,70 +1,100 @@
-# Plan: Defense Contract Platform for Underdogs
+# Plan: Defense Contract Wins for Underdogs
 
 ## The Problem
 
-Small defense companies lose contracts they're technically qualified for — not because they can't do the work, but because:
+Small defense companies lose contracts they're technically qualified for. Not because they can't do the work — because they don't have the BD infrastructure.
 
-1. **They can't find opportunities fast enough.** Primes have 50-person BD teams monitoring every solicitation. A 20-person company has one person doing BD part-time.
-2. **They can't team effectively.** DoD wants "best of breed" teams. Primes assemble teams from their rolodex of thousands. Small companies don't know who complements them.
-3. **They don't understand the game.** Who's the likely incumbent? What's the real budget? Is this wired? What does the evaluator actually care about? Primes have decades of institutional knowledge. Small companies are guessing.
-4. **They bid alone when they should team, and team when they should bid alone.** No data-driven bid/no-bid framework.
+A prime like Raytheon has:
+- A 50-person BD team tracking every solicitation
+- Capture managers who study each opportunity for months before the RFP drops
+- Decades of institutional knowledge: who the evaluators are, what they care about, what the incumbent bid last time
+- Pricing databases from thousands of past contracts
+- Relationships with contracting officers built over years
 
-The result: **the same 5 primes win 70%+ of defense dollars**, even when smaller companies could deliver better, faster, cheaper.
+A 20-person defense startup has:
+- One person doing BD part-time
+- No idea if an opportunity is wired for the incumbent
+- No data on what similar contracts awarded for
+- No capture strategy — they find the RFP, write a proposal, hope for the best
+- They bid on everything instead of focusing on what they can actually win
 
-## The Product: A Contract Matchmaker for Defense Underdogs
+The result: **small companies waste 80% of their BD effort on contracts they were never going to win**, and miss the ones where they had a real shot.
 
-This is NOT an intelligence dashboard. This is a **matchmaking and teaming platform** that actively puts contracts in front of the right small companies and helps them win.
+## The Product: A Capture Team in a Box
+
+We give every small defense company the equivalent of a $500K/year capture team. Not a dashboard. Not a chatbot. A system that tells you **exactly which contracts to pursue and exactly how to win them.**
 
 ### Core Loop
 
 ```
-Opportunity drops → Match to qualified underdogs → Assemble optimal team → Arm them to win
+Opportunity drops → Should you bid? (qualify) → How do you win? (capture strategy) → Execute (proposal support)
 ```
 
-### Feature Set
+### The Three Things That Win Contracts
 
-#### 1. Smart Matching (the engine)
+#### 1. Bid the Right Ones (Smart Qualification)
+
+Most small companies' #1 mistake: bidding on everything. They spread thin across 20 opportunities and win zero, when they should have gone all-in on 3.
+
+**What we do:**
 - Ingest every defense opportunity (SAM.gov, SBIR, DIU, AFWERX, SOFWERX, OTAs)
-- Build rich company profiles: capabilities, past performance, clearances, NAICS, set-asides, geographic presence
-- Match opportunities to companies with a **win probability score** — not just keyword matching, but pattern-based: "companies like you win contracts like this X% of the time"
-- **Push matches to companies.** Don't wait for them to search. The opportunity finds the company.
+- For each opportunity, build a **win probability score** based on:
+  - Your capabilities vs. requirements match
+  - Set-aside eligibility (8(a), HUBZone, SDVOSB, WOSB — your unfair advantages)
+  - Incumbent analysis: who holds the current contract, how long, are they likely to be displaced?
+  - Contract history: has this been re-competed before? How often does the incumbent lose?
+  - Agency patterns: does this contracting office favor small businesses? What's their award history?
+- **Bid/no-bid recommendation:** "Bid this one (72% match, no incumbent, set-aside you qualify for). Skip that one (wired for Lockheed, they've held it for 8 years, 3% win rate for challengers)."
+- Push the right opportunities to you. Don't make you search.
 
-#### 2. Teaming Network (the moat)
-This is what makes it NOT a wrapper. This is a proprietary network.
+**Why this matters:** Primes qualify ruthlessly — they have entire teams deciding what to bid on. We give small companies that same discipline with data.
 
-- Every company on the platform has a capability profile
-- When an opportunity requires capabilities no single small company has, the platform **suggests teaming arrangements**: "You do the cyber piece, they do the hardware, together you're competitive against Raytheon"
-- Team formation is the #1 thing small companies can't do at scale. Primes can. We give underdogs that superpower.
-- **Network effects:** More companies on the platform → better teams get formed → more wins → more companies join
-- Track teaming history, team chemistry, joint win rates
+#### 2. Know How to Win (Capture Intelligence)
 
-#### 3. Win Intelligence (the edge)
-- For every opportunity: who's the incumbent? What did they bid last time? What's the contract ceiling vs. actual spend?
-- **Win pattern analysis:** "For contracts like this, winning teams typically have [these capabilities] and bid [this range]"
-- Bid/no-bid recommendation: "Your win probability is 12% solo, 47% if you team with a company that has [X clearance + Y past performance]"
-- Post-award analysis: who won, at what price, what can you learn for next time
+Once you decide to bid, you need to know: **what does winning look like for THIS specific contract?**
 
-#### 4. Bid Support (the closer)
-- AI-powered compliance matrix generation from RFP
-- Shred the solicitation: pull out requirements, evaluation criteria, hidden preferences
-- Draft initial proposal sections leveraging company profile + past performance
-- Review checklist: "You're missing [X] — this is a common disqualification reason"
+**What we do:**
+- **Competitive landscape:** Who else is likely bidding? What are their strengths and weaknesses? Where can you differentiate?
+- **Evaluator intelligence:** What has this contracting office awarded before? What do they value — lowest price, technical excellence, past performance, small business participation?
+- **Pricing intelligence:** What did similar contracts award for? What's the realistic price range? Where should you price to be competitive without leaving money on the table?
+- **Win theme generation:** Based on the solicitation, the agency's history, and your strengths — "Lead with your [X capability], emphasize your [Y past performance], differentiate on [Z] because the incumbent is weak there."
+- **Ghost the competition:** "The likely incumbent is [Company]. They've delivered [these results]. Here's where they've underperformed: [contract modifications, schedule delays, cost overruns from FPDS data]. Position against these weaknesses."
+- **Pre-RFP engagement recommendations:** "This agency posted an RFI 6 months ago. Here's the industry day schedule. Engage NOW — 80% of wins are determined before the RFP drops."
+
+**Why this matters:** This is the stuff capture managers at primes do for 6-12 months before a bid. Small companies usually skip it entirely and go straight to proposal writing. We compress months of capture work into minutes.
+
+#### 3. Execute the Win (Proposal Support)
+
+You've qualified the opportunity and built your capture strategy. Now close it.
+
+**What we do:**
+- **Shred the solicitation:** Parse RFP into structured requirements, evaluation criteria (Section L & M), and mandatory vs. desirable items
+- **Compliance matrix:** Auto-generate from solicitation — every requirement mapped, nothing missed
+- **Proposal strategy:** Not just "fill in the template" but "here's how to score highest on each evaluation factor based on what this agency cares about"
+- **Draft key sections:** Executive summary, technical approach, past performance narratives — all leveraging your company profile and the capture intelligence
+- **Review checklist:** "You're missing [X] — this is a common disqualification reason for this agency"
+- **Price-to-win analysis:** "Based on historical awards for similar scope, target $X-Y range. Here's why."
+
+**Why this matters:** GovDash and others do proposal automation. We do proposal *strategy*. The difference between a compliant proposal and a winning one is knowing what the evaluator wants — and we feed that in from the capture intelligence.
 
 ### What This Is NOT
 - Not a general govcon tool (defense only — go deep, not wide)
+- Not a CRM or proposal management system (GovDash does that)
 - Not an AI chat about defense news (that's a blog)
-- Not a CRM or proposal management system (GovDash does that fine)
 - Not for primes (if you have 10,000 employees, this isn't for you)
 
-## Why This Wins
+## Why This Isn't a Wrapper
 
-**The GPT wrapper test:** Could someone replicate this by prompting ChatGPT? No, because:
-1. **Proprietary teaming network** — you can't prompt your way into knowing which small companies complement each other and have good working chemistry
-2. **Win pattern data** — years of contract award data analyzed into predictive models, not just summaries
-3. **Network effects** — the platform gets better as more companies join and team through it
-4. **Push-based matching** — opportunities find you, not the other way around. This requires a live data pipeline, not a chatbot.
+**The GPT wrapper test:** Could someone replicate this by prompting ChatGPT?
 
-**The moat is the network, not the AI.** AI is the engine. The network of small defense companies teaming through us is the moat.
+No, because the value is in the **data layer**, not the AI layer:
+1. **Win probability model** — built on years of FPDS award data, contract modifications, incumbent performance, agency behavior patterns. You can't prompt your way into this.
+2. **Pricing intelligence** — historical award prices for similar contracts, extracted and normalized from FPDS. This is a proprietary dataset.
+3. **Competitive intelligence** — who bids on what, who wins, at what price, with what team composition. Built from public data but assembled into a queryable competitive graph that doesn't exist anywhere else.
+4. **Agency behavior models** — how each contracting office evaluates, what they weight, their historical patterns. Derived from thousands of awards.
+5. **Live data pipeline** — opportunities pushed to you in real-time, pre-qualified. Not a search engine.
+
+**The moat is the data + the models trained on it.** AI is the interface. The intelligence comes from assembling public data into insights no one else has packaged.
 
 ## Technical Architecture
 
@@ -72,8 +102,8 @@ This is what makes it NOT a wrapper. This is a proprietary network.
 - **Backend:** Python (FastAPI)
 - **Database:** PostgreSQL + pgvector
 - **Data Pipeline:** Scrapers + API integrations for contract data, run on schedule
-- **Matching Engine:** Embedding-based capability matching + historical win pattern model
-- **AI Layer:** Claude API for RFP analysis, proposal drafting, compliance checking
+- **Win Model:** Historical FPDS data → feature extraction → win probability scoring
+- **AI Layer:** Claude API for RFP analysis, proposal drafting, capture strategy generation
 - **Frontend:** Next.js
 - **Notifications:** Email + SMS for opportunity alerts
 - **Hosting:** Vercel + Railway (cheap to start)
@@ -81,12 +111,13 @@ This is what makes it NOT a wrapper. This is a proprietary network.
 ### Data Model (core entities)
 - **Companies** — capabilities, clearances, NAICS, past performance, set-aside eligibility, location
 - **Opportunities** — from SAM.gov et al., parsed into structured fields + embeddings
-- **Contracts** — historical awards: who won, price, duration, agency, program
-- **Teams** — which companies have teamed, on what, outcome
-- **Matches** — opportunity ↔ company pairings with win probability scores
+- **Contracts** — historical awards: who won, price, duration, agency, program, modifications
+- **Vendors** — every company that's won a defense contract: capabilities inferred from awards, win rates, pricing patterns
+- **Agencies** — contracting offices: award patterns, evaluation tendencies, small business track record
+- **Matches** — opportunity ↔ company pairings with win probability scores + capture strategy
 
 ### Key Data Sources
-- **FPDS.gov** — historical contract awards (who won what, at what price)
+- **FPDS.gov** — historical contract awards (who won what, at what price, modifications, competition type)
 - **USAspending.gov** — federal spending by program, contractor, agency
 - **SAM.gov** — live opportunities + entity registrations
 - **SBIR.gov** — small business innovation opportunities
@@ -95,103 +126,103 @@ This is what makes it NOT a wrapper. This is a proprietary network.
 
 ## MVP Build Plan (4 Weeks)
 
-### Week 1: Data Foundation + Matching
+### Week 1: Data Foundation
 - Set up project (Next.js + FastAPI + PostgreSQL)
 - Build data ingestion: SAM.gov opportunities API, FPDS bulk data, USAspending API
 - Design and load database schema
 - Build company profile creation (onboarding flow)
-- Build opportunity ↔ company matching engine (capability + NAICS + set-aside matching)
-- Generate win probability scores from historical FPDS data
+- Ingest 3-5 years of defense contract awards from FPDS
+- Build vendor profiles from award history (auto-generated competitive intelligence)
 
-### Week 2: Teaming Engine
-- Build company capability graph (who does what, where, at what clearance level)
-- Teaming recommendation algorithm: "For this opportunity, the optimal team is [A + B + C]"
-- Team formation flow: invite companies to team, accept/decline, form joint profile
-- "Find a teaming partner" search: filter by capability, clearance, location, past performance
-- Basic messaging between companies exploring teaming
+### Week 2: Win Intelligence Engine
+- Win probability scoring model (capability match + set-aside + incumbent analysis + agency patterns)
+- Bid/no-bid recommendation engine
+- Incumbent identification for active opportunities
+- Pricing intelligence: what similar contracts awarded for
+- Competitive landscape generation: who's likely bidding, their strengths/weaknesses
+- Agency behavior profiling: evaluation tendencies, small business friendliness
 
-### Week 3: Win Intelligence + Bid Support
-- Incumbent analysis for each opportunity (who holds the current contract)
-- Historical pricing intelligence (what similar contracts awarded for)
-- Bid/no-bid scoring: solo win probability vs. teamed win probability
-- RFP analysis feature: upload solicitation → structured breakdown of requirements + evaluation criteria
-- Compliance matrix generator
-- Basic proposal section drafting from company profile
+### Week 3: Capture Strategy + Proposal Support
+- Capture strategy generator: win themes, differentiators, competitive positioning
+- RFP analysis: shred solicitation into requirements + evaluation criteria
+- Compliance matrix auto-generation
+- Proposal section drafting (exec summary, technical approach, past performance)
+- Price-to-win analysis
+- Daily opportunity digest email with win probability scores
 
 ### Week 4: Polish + Launch
-- Daily opportunity digest email (personalized matches + win probability)
-- Dashboard: my matches, my teams, my pipeline
-- Landing page: "Stop losing contracts to primes. Team up and win."
+- Dashboard: my opportunities pipeline (qualified → pursuing → submitted → won/lost)
+- Opportunity detail page: win probability, capture strategy, competitive landscape, pricing intel
+- Landing page: "Stop guessing. Start winning."
 - Onboarding: company profile setup in under 5 minutes
-- Free tier: see matches, basic search
-- Paid tier ($149/mo): teaming network, win intelligence, bid support, unlimited alerts
+- Free tier: see matches, basic win scores
+- Paid tier ($149/mo): full capture intelligence, proposal support, pricing intel, unlimited analyses
 - Launch: X/Twitter, LinkedIn, defense tech communities, direct outreach to 50 small defense companies
 
 ## Business Model
 
 | Tier | Price | What You Get |
 |------|-------|-------------|
-| Free | $0 | See your top 5 matches/week, basic contract search |
-| Pro | $149/mo | Full matching, teaming network, win intelligence, 10 AI analyses/mo |
-| Team | $349/mo | Everything + unlimited AI analyses, proposal support, team formation tools, API access |
-
-**The real revenue play:** Once teams form and win contracts through the platform, take a **success fee** (0.5-1% of contract value) or **preferred teaming partner** placement. This aligns our incentives with the underdog's: we only make real money when they win.
+| Free | $0 | Top 5 matched opportunities/week with basic win scores |
+| Pro | $149/mo | Full win intelligence, capture strategies, competitive landscape, pricing intel, 10 AI proposal analyses/mo |
+| Operator | $349/mo | Everything + unlimited analyses, proposal drafting, price-to-win, dedicated support |
 
 **Revenue targets:**
 - Month 1: 20-30 companies signed up, 5-10 paying ($750-$3.5K MRR)
-- Month 3: 100 companies, 30-50 paying ($4.5K-$17.5K MRR), first teams formed
-- Month 6: 500 companies, 100+ paying, first contract wins through platform teams
-- Apply to YC with: "X companies, Y teams formed, Z contract wins facilitated, $A MRR"
+- Month 3: 100 companies, 30-50 paying ($4.5K-$17.5K MRR)
+- Month 6: 500 companies, 100+ paying
+- Apply to YC with: "X companies, Y% bid-win rate improvement, $A MRR"
 
 ## Go-to-Market
 
-1. **Narrative:** "The primes have armies. You have us." The underdog story is inherently viral in defense tech.
-2. **Content:** Publish "Underdog Win Reports" — case studies of small companies beating primes. This IS the marketing.
-3. **Community:** Build a Slack/Discord for small defense companies. Give them a place to find each other. The community becomes the teaming network.
-4. **Accelerator partnerships:** NSIN, Catalyst, Techstars Allied Defense — offer free access to their cohort companies. Every startup in these programs needs teaming partners.
-5. **Direct outreach:** Target companies that recently lost bids (public data from FPDS). "You lost [X contract] to [prime]. Here's how you could have won with a team."
+1. **Narrative:** "The primes have capture teams. Now you do too."
+2. **Content:** Publish real competitive intelligence — "Here's what the data says about who wins cyber contracts at DISA" — the content IS the product demo.
+3. **Direct outreach:** Target companies that recently lost bids (public data from FPDS). "You lost [X contract] to [incumbent]. Here's what the data says you should have done differently. Here's 3 opportunities you'd be competitive on right now."
+4. **Defense accelerator partnerships:** NSIN, Catalyst, Techstars Allied Defense — free access for cohort companies.
+5. **Community:** Slack/Discord for small defense companies. Share win insights, opportunity alerts, BD strategy.
+
+## Future Features (Not MVP)
+
+- **Teaming suggestions:** When an opportunity is too large for one small company, suggest potential teaming partners from the platform
+- **Pre-RFP tracking:** Monitor sources sought, RFIs, industry days — alert companies to opportunities before the RFP drops
+- **Win/loss debrief analysis:** After award, analyze what the winner did right using public data
+- **Subcontracting marketplace:** Primes need small business subs to hit their subcontracting goals. Connect them.
+- **International:** Allied nations (AUKUS, NATO) rearming = same problem, new market
 
 ## Why YC Would Fund This
 
-- **Network effects business**, not a GPT wrapper — moat deepens with every company that joins
+- **Data moat**, not a wrapper — proprietary win models and competitive intelligence built on years of FPDS data
 - **Defense is YC's fastest-growing vertical** (0 → 19 companies in 2 batches)
-- **Massive market:** $400B+ in annual defense contracts, underdogs are underserved
-- **Aligned incentives:** success-fee model means we win when underdogs win
-- **Data flywheel:** more companies → better matching → more wins → more companies
-- **Clear wedge:** start with teaming/matching, expand into the full BD stack for small defense companies
-
-## Expansion Path
-
-1. **Months 1-6:** Matching + teaming + win intelligence (MVP). Prove teams form and win.
-2. **Months 6-12:** Success fee model. Deeper proposal support. Clearance-aware matching.
-3. **Year 2:** Become the marketplace for defense subcontracting. Primes come here to find small business subs (they have small business subcontracting goals they MUST hit).
-4. **Year 3:** International — allied nations (AUKUS, NATO) have the same problem with defense monopolies.
+- **Massive market:** $400B+ in annual defense contracts, small companies are underserved
+- **Measurable outcome:** customer win rates. Did their bid-win rate go up? That's the metric.
+- **Self-serve SaaS with transparent pricing** — GovDash requires enterprise sales. We're credit card from day one.
+- **Mission-aligned:** American Dynamism narrative — help the little guy compete
 
 ## Risks
 
 | Risk | Mitigation |
 |------|-----------|
-| Companies won't share capabilities publicly | They already do on DSBS and SAM.gov. We're just making it useful. |
-| Teaming is relationship-driven, not platform-driven | Start with warm intros and lightweight teaming. Don't try to replace relationships — augment them with data. |
-| Win probability model isn't accurate enough | Start simple (historical base rates by NAICS/set-aside), get better with data. Even rough signals beat guessing. |
-| GovDash adds teaming features | Their customer base is primes. They can't credibly serve underdogs AND primes. We're picking a side. |
-| Slow adoption | The community play (Slack/Discord) is free and builds the network even before paid features. |
+| Win probability model isn't accurate enough | Start simple (historical base rates by NAICS/set-aside/agency), improve with data. Even rough signals beat guessing. |
+| GovDash adds capture intelligence | They serve primes too — can't offer "how to beat the incumbent" when the incumbent is their customer. We're picking a side. |
+| Companies don't trust AI recommendations for high-stakes bids | Always show the data behind every recommendation. "Here's why we say this — here's the raw FPDS data." Human verifies, AI informs. |
+| FPDS data quality/completeness | Supplement with USAspending, cross-validate. Start with well-populated contract types. |
+| Sales cycle too long | Self-serve, credit card, $149/mo. Not selling to government — selling to contractors. |
 
 ## Verification Plan
 
-1. Can a company sign up, build a profile, and see matched opportunities in under 5 minutes?
-2. Does the teaming recommendation actually surface complementary companies?
+1. Can a company sign up, build a profile, and see qualified opportunities with win scores in under 5 minutes?
+2. Does the bid/no-bid recommendation correlate with actual outcomes? (Backtest against historical data)
 3. Would a BD person at a 30-person defense company pay $149/mo for this?
-4. Does the win probability score correlate with actual outcomes?
-5. Can two companies that met through the platform form a team and submit a joint bid?
-6. 30-second pitch: "We help small defense companies team up and beat the primes."
+4. Does the capture strategy surface non-obvious insights (pricing intel, incumbent weaknesses, agency preferences)?
+5. Does the competitive landscape accurately identify likely competitors?
+6. 30-second pitch: "We tell small defense companies exactly which contracts to bid on and exactly how to win them."
 
 ## Next Steps
 
 1. Research and test data source APIs (SAM.gov, FPDS, USAspending, DSBS)
-2. Design database schema around the core entities
+2. Design database schema
 3. Build data ingestion pipeline
-4. Build matching + teaming engine
-5. Build frontend + notifications
-6. Seed the network with 50 companies
+4. Build win probability model
+5. Build capture intelligence engine
+6. Build frontend + notifications
 7. Launch
