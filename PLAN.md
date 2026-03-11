@@ -30,14 +30,17 @@ We give every small defense company the equivalent of a $500K/year capture team.
 Opportunity drops → Should you bid? (qualify) → How do you win? (capture strategy) → Execute (proposal support)
 ```
 
-### The Three Things That Win Contracts
+### Features by Priority
 
-#### 1. Bid the Right Ones (Smart Qualification)
+#### P0 — Opportunity Matching (the core, day-1 value)
 
-Most small companies' #1 mistake: bidding on everything. They spread thin across 20 opportunities and win zero, when they should have gone all-in on 3.
+This is the product. Everything else builds on top of this.
+
+Most small companies' #1 mistake: bidding on everything. They spread thin across 20 opportunities and win zero, when they should have gone all-in on 3. We fix that.
 
 **What we do:**
 - Ingest every defense opportunity (SAM.gov, SBIR, DIU, AFWERX, SOFWERX, OTAs)
+- Build rich company profiles during onboarding: capabilities, NAICS, clearances, set-asides, past performance, focus areas
 - For each opportunity, build a **win probability score** based on:
   - Your capabilities vs. requirements match
   - Set-aside eligibility (8(a), HUBZone, SDVOSB, WOSB — your unfair advantages)
@@ -49,23 +52,21 @@ Most small companies' #1 mistake: bidding on everything. They spread thin across
 
 **Why this matters:** Primes qualify ruthlessly — they have entire teams deciding what to bid on. We give small companies that same discipline with data.
 
-#### 2. Know How to Win (Capture Intelligence)
+#### P1 — Capture Intelligence (the "how to win" playbook)
 
 Once you decide to bid, you need to know: **what does winning look like for THIS specific contract?**
 
 **What we do:**
 - **Competitive landscape:** Who else is likely bidding? What are their strengths and weaknesses? Where can you differentiate?
 - **Evaluator intelligence:** What has this contracting office awarded before? What do they value — lowest price, technical excellence, past performance, small business participation?
-- **Pricing intelligence:** What did similar contracts award for? What's the realistic price range? Where should you price to be competitive without leaving money on the table?
 - **Win theme generation:** Based on the solicitation, the agency's history, and your strengths — "Lead with your [X capability], emphasize your [Y past performance], differentiate on [Z] because the incumbent is weak there."
 - **Ghost the competition:** "The likely incumbent is [Company]. They've delivered [these results]. Here's where they've underperformed: [contract modifications, schedule delays, cost overruns from FPDS data]. Position against these weaknesses."
-- **Pre-RFP engagement recommendations:** "This agency posted an RFI 6 months ago. Here's the industry day schedule. Engage NOW — 80% of wins are determined before the RFP drops."
 
 **Why this matters:** This is the stuff capture managers at primes do for 6-12 months before a bid. Small companies usually skip it entirely and go straight to proposal writing. We compress months of capture work into minutes.
 
-#### 3. Execute the Win (Proposal Support)
+#### P2 — RFP Shredding + Proposal Support (the closer)
 
-You've qualified the opportunity and built your capture strategy. Now close it.
+You've qualified the opportunity and have a capture strategy. Now close it.
 
 **What we do:**
 - **Shred the solicitation:** Parse RFP into structured requirements, evaluation criteria (Section L & M), and mandatory vs. desirable items
@@ -73,9 +74,31 @@ You've qualified the opportunity and built your capture strategy. Now close it.
 - **Proposal strategy:** Not just "fill in the template" but "here's how to score highest on each evaluation factor based on what this agency cares about"
 - **Draft key sections:** Executive summary, technical approach, past performance narratives — all leveraging your company profile and the capture intelligence
 - **Review checklist:** "You're missing [X] — this is a common disqualification reason for this agency"
-- **Price-to-win analysis:** "Based on historical awards for similar scope, target $X-Y range. Here's why."
 
 **Why this matters:** GovDash and others do proposal automation. We do proposal *strategy*. The difference between a compliant proposal and a winning one is knowing what the evaluator wants — and we feed that in from the capture intelligence.
+
+#### P3 — Pricing Intelligence
+
+- **Historical award prices** for similar contracts, extracted and normalized from FPDS
+- **Price-to-win analysis:** "Based on historical awards for similar scope, target $X-Y range. Here's why."
+- Where should you price to be competitive without leaving money on the table?
+
+#### P4 — Agency Behavior Profiling
+
+- How each contracting office evaluates, what they weight, their historical patterns
+- Small business friendliness scores per agency/office
+- Derived from thousands of awards — patterns humans can't see manually
+
+#### P5 — Daily Opportunity Digest (email/notifications)
+
+- Morning briefing email: personalized matches with win probability scores
+- Alerts for new high-match opportunities
+- Contract award notifications in your space
+
+#### P6 — Pre-RFP Tracking
+
+- Monitor sources sought, RFIs, industry days — alert companies to opportunities before the RFP drops
+- Pre-RFP engagement recommendations: "This agency posted an RFI 6 months ago. Engage NOW."
 
 ### What This Is NOT
 - Not a general govcon tool (defense only — go deep, not wide)
@@ -126,38 +149,40 @@ No, because the value is in the **data layer**, not the AI layer:
 
 ## MVP Build Plan (4 Weeks)
 
-### Week 1: Data Foundation
+### Week 1: Data Foundation + Opportunity Matching (P0)
 - Set up project (Next.js + FastAPI + PostgreSQL)
 - Build data ingestion: SAM.gov opportunities API, FPDS bulk data, USAspending API
 - Design and load database schema
-- Build company profile creation (onboarding flow)
 - Ingest 3-5 years of defense contract awards from FPDS
+- Build company profile creation (onboarding flow)
+- Build opportunity ↔ company matching engine (capability + NAICS + set-aside matching)
+- Win probability scoring from historical FPDS data (incumbent analysis, agency patterns, competition type)
+- Bid/no-bid recommendations
+- Dashboard: matched opportunities ranked by win probability
+
+### Week 2: Capture Intelligence (P1)
+- Incumbent identification for active opportunities (link current solicitations to prior awards in FPDS)
 - Build vendor profiles from award history (auto-generated competitive intelligence)
-
-### Week 2: Win Intelligence Engine
-- Win probability scoring model (capability match + set-aside + incumbent analysis + agency patterns)
-- Bid/no-bid recommendation engine
-- Incumbent identification for active opportunities
-- Pricing intelligence: what similar contracts awarded for
 - Competitive landscape generation: who's likely bidding, their strengths/weaknesses
-- Agency behavior profiling: evaluation tendencies, small business friendliness
+- Win theme generation: how to position against likely competitors
+- Ghost the competition: surface incumbent weaknesses from FPDS data (contract mods, cost overruns)
+- Opportunity detail page: win probability + capture strategy + competitive landscape
 
-### Week 3: Capture Strategy + Proposal Support
-- Capture strategy generator: win themes, differentiators, competitive positioning
-- RFP analysis: shred solicitation into requirements + evaluation criteria
+### Week 3: RFP Shredding + Proposal Support (P2)
+- RFP analysis: upload solicitation → structured breakdown of requirements + evaluation criteria (Section L & M)
 - Compliance matrix auto-generation
-- Proposal section drafting (exec summary, technical approach, past performance)
-- Price-to-win analysis
-- Daily opportunity digest email with win probability scores
+- Proposal strategy: how to score highest on each evaluation factor
+- Draft key sections (exec summary, technical approach, past performance) from company profile + capture intel
+- Review checklist: flag common disqualification risks
 
 ### Week 4: Polish + Launch
-- Dashboard: my opportunities pipeline (qualified → pursuing → submitted → won/lost)
-- Opportunity detail page: win probability, capture strategy, competitive landscape, pricing intel
+- Pipeline view: qualified → pursuing → submitted → won/lost
 - Landing page: "Stop guessing. Start winning."
 - Onboarding: company profile setup in under 5 minutes
 - Free tier: see matches, basic win scores
-- Paid tier ($149/mo): full capture intelligence, proposal support, pricing intel, unlimited analyses
+- Paid tier ($149/mo): full capture intelligence, proposal support, unlimited analyses
 - Launch: X/Twitter, LinkedIn, defense tech communities, direct outreach to 50 small defense companies
+- P3-P6 features are post-launch based on user feedback
 
 ## Business Model
 
@@ -181,10 +206,16 @@ No, because the value is in the **data layer**, not the AI layer:
 4. **Defense accelerator partnerships:** NSIN, Catalyst, Techstars Allied Defense — free access for cohort companies.
 5. **Community:** Slack/Discord for small defense companies. Share win insights, opportunity alerts, BD strategy.
 
-## Future Features (Not MVP)
+## Post-MVP Roadmap
 
-- **Teaming suggestions:** When an opportunity is too large for one small company, suggest potential teaming partners from the platform
-- **Pre-RFP tracking:** Monitor sources sought, RFIs, industry days — alert companies to opportunities before the RFP drops
+**Near-term (based on user feedback):**
+- P3: Pricing intelligence — historical award prices, price-to-win analysis
+- P4: Agency behavior profiling — evaluation tendencies, small business friendliness scores
+- P5: Daily opportunity digest emails — morning briefings with personalized matches
+- P6: Pre-RFP tracking — sources sought, RFIs, industry days
+
+**Later:**
+- **Teaming suggestions:** When an opportunity is too large for one small company, suggest potential teaming partners
 - **Win/loss debrief analysis:** After award, analyze what the winner did right using public data
 - **Subcontracting marketplace:** Primes need small business subs to hit their subcontracting goals. Connect them.
 - **International:** Allied nations (AUKUS, NATO) rearming = same problem, new market
