@@ -1,5 +1,9 @@
 # Defense Intel - Project Instructions
 
+## Mission
+
+Read `MISSION.md` at the start of every session. Every feature, every decision filters through one question: **does this help an underdog win a contract they deserve?** If it doesn't, don't build it.
+
 ## Collaboration Style
 
 - **Be incredibly hands-on with the user.** This is a deeply collaborative project — don't go off and build things solo.
